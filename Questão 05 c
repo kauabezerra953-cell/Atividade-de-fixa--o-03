@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    float valor, desconto, valorDesconto, valorPagar;
+    int opcao;
+
+    printf("Digite o valor da compra: R$ ");
+    scanf("%f", &valor);
+
+    printf("\nForma de pagamento:\n");
+    printf("1 - PIX (20%% de desconto)\n");
+    printf("2 - Debito (15%% de desconto)\n");
+    printf("3 - Credito (5%% de desconto)\n");
+    printf("Escolha: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            desconto = 20;
+            break;
+        case 2:
+            desconto = 15;
+            break;
+        case 3:
+            desconto = 5;
+            break;
+        default:
+            printf("Forma de pagamento invalida.\n");
+            return 0;
+    }
+
+    valorDesconto = valor * desconto / 100;
+    valorPagar = valor - valorDesconto;
+
+    printf("\nValor da compra: R$ %.2f\n", valor);
+    printf("Valor do desconto: R$ %.2f\n", valorDesconto);
+    printf("Valor a pagar: R$ %.2f\n", valorPagar);
+
+    return 0;
+}
